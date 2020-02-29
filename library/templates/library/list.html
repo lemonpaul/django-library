@@ -1,0 +1,16 @@
+{% extends "library/base.html" %}
+{% block content %}
+    {% for book in books %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ book.cover.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'user-books' book.owner.username %}">{{ book.owner }}</a>
+              <small class="text-muted">{{ book.date_add|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'book-detail' book.id %}">{{ book.title }}</a></h2>
+            <p class="article-content">{{ book.author }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
