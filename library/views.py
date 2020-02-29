@@ -15,12 +15,14 @@ class BookListView(ListView):
     template_name = 'library/list.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'books'
     ordering = ['-date_add']
+    paginate_by = 5
 
 
 class UserBookListView(ListView):
     model = Book
     template_name = 'library/user.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'books'
+    paginate_by = 5
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))

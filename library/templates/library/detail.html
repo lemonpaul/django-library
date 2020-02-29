@@ -1,9 +1,9 @@
 {% extends "library/base.html" %}
 {% block content %}
   <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ book.cover.url }}">
+    <img class="rounded-circle book-img" src="{{ book.cover.url }}">
     <div class="media-body">
-      <div class="article-metadata">
+      <div class="book-metadata">
         <a class="mr-2" href="{% url 'user-books' book.owner.username %}">{{ book.owner }}</a>
         <small class="text-muted">{{ book.date_add|date:"F d, Y" }}</small>
         {% if book.owner == user %}
@@ -14,8 +14,8 @@
           </div>
         {% endif %}
       </div>
-      <h2 class="article-title">{{ book.title }}</h2>
-      <p class="article-content">{{ book.author }}</p>  
+      <h2 class="book-title">{{ book.title }}</h2>
+      <p class="book-author">{{ book.author }}</p>  
     </div>
   </article>
 {% endblock content %}
