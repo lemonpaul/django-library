@@ -4,7 +4,7 @@
     <img class="rounded-circle article-img" src="{{ book.cover.url }}">
     <div class="media-body">
       <div class="article-metadata">
-        <a class="mr-2" href=#>{{ book.owner }}</a>
+        <a class="mr-2" href="{% url 'user-books' book.owner.username %}">{{ book.owner }}</a>
         <small class="text-muted">{{ book.date_add|date:"F d, Y" }}</small>
         {% if book.owner == user %}
           <div>
